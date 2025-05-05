@@ -14,7 +14,7 @@ func _ready():
 func _on_dialogic_signal(argument:String):
 	if argument == "shooting":
 		var shape_world_pos = $Basketball.collision_shape.global_position
-		$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70)
+		print($Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70))
 	if argument == "shake":
 		camera.apply_shake()
 	print(argument)

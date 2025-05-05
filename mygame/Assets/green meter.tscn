@@ -12,10 +12,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_right = 608.0
 offset_bottom = 64.0
+rotation = -1.5708
 nine_patch_stretch = true
 texture_under = ExtResource("1_ev186")
 texture_progress = ExtResource("2_ca303")
