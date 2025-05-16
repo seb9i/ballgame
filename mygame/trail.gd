@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	var pos = _get_position()
 	queue.push_front(pos)
-	if (queue.size() > 30):
+	if (queue.size() > 35):
 		queue.pop_back()
 	clear_points()
 	
