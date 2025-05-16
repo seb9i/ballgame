@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbdymba1y348"]
+
+[ext_resource type="FontFile" uid="uid://ce6edmicf20q2" path="res://Assets/Fonts/Digital7Italic-BW658.ttf" id="1_yu7d7"]
+[ext_resource type="Script" path="res://score.gd" id="2_ks2p3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 152.0
+offset_bottom = 114.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+z_index = 5
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(0.834129, 0.24125, 0.123567, 1)
+theme_override_fonts/font = ExtResource("1_yu7d7")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ks2p3")
