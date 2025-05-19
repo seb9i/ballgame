@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c41un0xmqs0d3"
-path="res://.godot/imported/JustMyType-KePl.ttf-00bf679de023285d8895cc97c816c51a.fontdata"
+uid="uid://0qrj7clgq3"
+path="res://.godot/imported/Digital7Italic-BW658.ttf-665faf7b1ad666ca2d7f73d11843743a.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/JustMyType-KePl.ttf"
-dest_files=["res://.godot/imported/JustMyType-KePl.ttf-00bf679de023285d8895cc97c816c51a.fontdata"]
+source_file="res://Assets/Fonts/Digital7Italic-BW658.ttf"
+dest_files=["res://.godot/imported/Digital7Italic-BW658.ttf-665faf7b1ad666ca2d7f73d11843743a.fontdata"]
 
 [params]
 

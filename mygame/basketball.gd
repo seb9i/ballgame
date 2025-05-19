@@ -26,7 +26,7 @@ func _unhandled_input(event) -> void:
 	var shape_world_pos = collision_shape.global_position 
 
 	if not is_shot:
-		
+		%trail.visible = false
 		if Input.is_action_just_released("Shoot"):
 			time = Time.get_unix_time_from_system()
 			
@@ -54,9 +54,7 @@ func _physics_process(delta):
 	var ball = get_parent().get_node("Basketball")
 	bar.global_position = ball.global_position
 	if ball.global_position.y >= RESET_WIDTH and ball.global_position.x <= RESET_LENGTH:
-		ball.global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
-		ball.set_freeze_enabled(true)
-		ball.is_shot = false
+		transfer_ball_random()
 	if is_shot:
 		if Time.get_unix_time_from_system() - time > 3:
 			ball.global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
@@ -87,8 +85,9 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
 	
 	var launch_speed = sqrt(speed_squared)
 	
-	if (meter > 90):
+	if (meter > 85):
 		meter = 100
+		$trail.visible = true
 	
 	var vx = rng.randf_range((launch_speed * cos_angle) * (meter / 100), launch_speed * cos_angle )
 	var vy = rng.randf_range((launch_speed * sin_angle) * (meter / 100), launch_speed * sin_angle )
@@ -100,7 +99,10 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
  
 	
 func transfer_ball_random():
-	var x = randi_range(200, 1000)
+	%trail.visible = false
+	global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
+	set_freeze_enabled(true)
+	is_shot = false
 
 # Collision Sound Effects
 func _on_body_entered(body: Node) -> void:

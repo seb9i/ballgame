@@ -7,7 +7,6 @@ proctor: [speed=1.7]There's only one thing you have to do in this game, which is
 proctor: Try shooting now by holding [color=green]E[/color] and releasing when the bar reaches the top.
 [wait time="5.0"]
 proctor: Seems easy enough, right?
-proctor:  The scoreboard on the top will increment everytime you make a shot.
 proctor: Depending on who you're playing against, your screen will shake at different magnitudes.
 [signal arg="shake"]
 proctor: This is a representation of the opponent's defense, and it will affect how well you can shoot.
