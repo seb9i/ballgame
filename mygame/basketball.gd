@@ -13,19 +13,20 @@ var rng = RandomNumberGenerator.new()
 @onready var bar = meter.get_node("TextureProgressBar")
 const RESET_LENGTH = 100
 const RESET_WIDTH = 550
-const MIN_X = 400
-const MAX_X = 1200
+const MIN_X = 340
+const MAX_X = 1400
 const MIN_Y = 200
-const MAX_Y = 600
+const MAX_Y = 400
 var is_shot = false
 var time = Time.get_unix_time_from_system()
+var allow_input = true
 
 
 func _unhandled_input(event) -> void:
 	var ball = get_parent().get_node("Basketball")
 	var shape_world_pos = collision_shape.global_position 
 
-	if not is_shot:
+	if not is_shot and allow_input:
 		%trail.visible = false
 		if Input.is_action_just_released("Shoot"):
 			time = Time.get_unix_time_from_system()
@@ -51,6 +52,7 @@ func _unhandled_input(event) -> void:
 	
 	
 func _physics_process(delta):
+
 	var ball = get_parent().get_node("Basketball")
 	bar.global_position = ball.global_position
 	if ball.global_position.y >= RESET_WIDTH and ball.global_position.x <= RESET_LENGTH:
@@ -94,16 +96,20 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
 	
 	ball.linear_velocity = Vector2(-vx, -vy)
 	return true
-
-
- 
-	
+ 	
 func transfer_ball_random():
 	%trail.visible = false
 	global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
 	set_freeze_enabled(true)
 	is_shot = false
 
+func make_transparent(boolean = false):
+	if boolean:
+		$Sprite2D.self_modulate.a = 0.5
+	else:
+		$Sprite2D.self_modulate.a = 1
+		
+		
 # Collision Sound Effects
 func _on_body_entered(body: Node) -> void:
 	
