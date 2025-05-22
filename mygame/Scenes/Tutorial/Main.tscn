@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scenes/Tutorial/main.gd" id="1_trn2v"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_wkp8b"]
-[ext_resource type="Texture2D" uid="uid://bnc2cy83881em" path="res://Assets/Background/7.png" id="3_sr8x1"]
 [ext_resource type="PackedScene" uid="uid://dem4vu137w1r8" path="res://basketball.tscn" id="4_n34pj"]
 [ext_resource type="Texture2D" uid="uid://e01en7w64xac" path="res://Assets/Background/black-370118_1280.png" id="4_xy61t"]
 [ext_resource type="PackedScene" uid="uid://b2pvqe64fs4u2" path="res://Assets/Trail/trail.tscn" id="5_d2r1e"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dtvbpoicwe373" path="res://Assets/green meter.tscn" id="11_20pc6"]
 [ext_resource type="Script" path="res://Assets/green_meter.gd" id="12_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://daq7qjfpqc2vr" path="res://scoreboard.tscn" id="14_1wppe"]
+[ext_resource type="PackedScene" uid="uid://cu6ejnnnbujeq" path="res://tutorial_background.tscn" id="15_qedc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 size = Vector2(1909.88, 18)
@@ -34,23 +34,6 @@ script = ExtResource("1_trn2v")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574.625, 327)
 script = ExtResource("2_wkp8b")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-light_mask = 4
-visibility_layer = 4
-z_index = 4
-offset_left = -2.0
-offset_top = 3.0
-offset_right = 1152.0
-offset_bottom = 651.0
-color = Color(0, 0, 0, 1)
-
-[node name="BackGround" type="Sprite2D" parent="."]
-visibility_layer = 512
-z_index = 4
-position = Vector2(574, 330)
-scale = Vector2(0.831597, 0.834876)
-texture = ExtResource("3_sr8x1")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -130,6 +113,10 @@ script = ExtResource("12_5vvyt")
 [node name="Scoreboard" parent="." instance=ExtResource("14_1wppe")]
 z_index = 4
 position = Vector2(477, -193)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("15_qedc0")]
+offset = Vector2(-390, -220)
+transform = Transform2D(1, 0, 0, 1, -390, -220)
 
 [connection signal="finished" from="ambience" to="." method="_on_ambience_finished"]
 [connection signal="body_entered" from="SoundTrigger" to="." method="_on_area_2d_body_entered"]

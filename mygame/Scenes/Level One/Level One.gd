@@ -1,9 +1,10 @@
 extends Node2D
 var horse_enabled = false
-
+signal shot
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	Dialogic.start("Level_One")
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,9 +27,26 @@ func activate_horse(boolean = false):
 		$Basketball.allow_input = true
 		
 
+func _on_dialogic_signal(argument:String):
+	if argument == "Pick":
+		activate_horse(true)
+		Dialogic.paused = true
+
+
 func _unhandled_input(event) -> void:
 	if Input.is_action_just_pressed("Left"):
 		activate_horse(true)
+	if Input.is_action_just_released("E"):
+		shot.emit()
 	if Input.is_action_just_pressed("Click"):
 		activate_horse(false)
+
+		await shot
+		Dialogic.paused = false
+
 	
+
+
+func _on_sound_trigger_body_entered(body):
+	if (body.name == "Basketball" and $Basketball.is_shot):
+		Dialogic.paused = false;

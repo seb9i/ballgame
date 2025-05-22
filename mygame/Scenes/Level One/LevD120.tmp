@@ -117,5 +117,3 @@ position = Vector2(477, -193)
 position = Vector2(576, 251)
 scale = Vector2(0.828993, 0.731481)
 texture = ExtResource("14_0dk8j")
-
-[connection signal="body_entered" from="SoundTrigger" to="." method="_on_sound_trigger_body_entered"]

@@ -35,9 +35,7 @@ func _on_dialogic_signal(argument:String):
 		Dialogic.paused = true
 		camera.activateDefense()
 	if argument == "show_score":
-		var tween = create_tween()
-		tween.tween_property($Scoreboard, "position", Vector2(480, -203), 2).from(Vector2(480, -350))
-		Scoreboard.score = 0
+		$Scoreboard.show_score()
 		scoreboard_dropped = true
 	
 func _on_timeline_ended():
