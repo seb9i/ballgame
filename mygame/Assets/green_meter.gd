@@ -3,7 +3,7 @@ extends Control
 var speed = 0.6
 @onready var basketball = get_parent().get_node("Basketball")
 func _process(delta):
-	if not basketball.is_shot:
+	if not basketball.is_shot and basketball.allow_input:
 		
 		if Input.is_action_pressed("Shoot"):
 			meter.visible = true
