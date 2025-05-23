@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://lf67avx156i6"]
+
+[ext_resource type="Texture2D" uid="uid://bpaqgpieyfgly" path="res://Assets/Textures/pixil-frame-0 (3).png" id="1_asiuf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
+size = Vector2(35.9219, 35.8438)
+
+[node name="Rim" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
+position = Vector2(-643, -291)
+shape = SubResource("RectangleShape2D_lgr22")
+disabled = true
+
+[node name="Long" type="CollisionShape2D" parent="."]
+position = Vector2(-645, -382)
+shape = SubResource("RectangleShape2D_lgr22")
+disabled = true
+
+[node name="Medium" type="CollisionShape2D" parent="."]
+position = Vector2(-664, -382)
+shape = SubResource("RectangleShape2D_lgr22")
+disabled = true
+
+[node name="Short" type="CollisionShape2D" parent="."]
+position = Vector2(-700, -359)
+shape = SubResource("RectangleShape2D_lgr22")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-733.711, -245)
+scale = Vector2(0.355273, 0.281171)
+texture = ExtResource("1_asiuf")
+offset = Vector2(-13.505, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-37, 20)
+scale = Vector2(0.849266, 1)
+polygon = PackedVector2Array(-720.39, -329, -704.137, -325, -698.25, -323, -704.137, -303, -718.267, -297)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-201.761, 0)
+scale = Vector2(0.766818, 1)
+polygon = PackedVector2Array(-748, -311, -750, -468, -854, -467, -852.48, -369.092, -849, -145, -828, -141, -795, -160, -776, -168, -757, -181, -748, -187, -751, -282, -736, -281, -734, -312, -741.178, -310)

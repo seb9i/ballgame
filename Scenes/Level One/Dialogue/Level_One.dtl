@@ -1,0 +1,11 @@
+Some time passes.
+[wait time="3.0"]
+Would you like to play a game of H.O.R.S.E?
+- Yes!
+	Great! Lets start.
+- No!
+	We only have one ball.
+Pick a spot on the floor by pressing [color=green]G[/color].
+[wait_input]
+[signal arg="Pick"]
+wow

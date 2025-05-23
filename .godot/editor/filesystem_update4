@@ -1,0 +1,15 @@
+res://Scenes/Level One/Level One.tscn
+res://Dialogue/New_File.tres
+res://Scenes/Main Menu/main_menu.tscn
+res://scoreboard.tscn
+res://tutorial_background.tscn
+res://Scenes/Tutorial/Main.tscn
+res://rim.tscn
+res://Scenes/Tutorial/Dialogue/proctor.dch
+res://basketball.gd
+res://Scenes/Level One/Dialogue/Level_One.dtl
+res://Scenes/Tutorial/main.gd
+res://Scenes/Level One/Level One.gd
+res://basketball.tscn
+res://Scenes/Level One/SoundTrigger.gd
+res://global.gd
