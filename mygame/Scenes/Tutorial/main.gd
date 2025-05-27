@@ -16,7 +16,7 @@ func _ready():
 	get_tree().change_scene_to_file("res://Scenes/Level One/Level One.tscn")
 	
 func _process(delta):
-	print(get_global_mouse_position())
+
 	if (Scoreboard.score >= 2 and scoreboard_dropped):
 		Dialogic.paused = false
 		camera.activateDefense()
@@ -58,8 +58,5 @@ func _on_ambience_finished() -> void:
 	pass # Replace with function body.
 
 
-func _on_area_2d_body_entered(body) -> void:
-	if (body.name == "Basketball"):
-		swish.play()
-		Scoreboard.score += 1
-		
+func _on_sound_trigger_body_entered(body):
+	pass # Replace with function body.

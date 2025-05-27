@@ -4,7 +4,9 @@ extends Control
 @export var start_level = preload("res://Scenes/Tutorial/Main.tscn")
 
 func _ready():
-	start_button.button_down.connect(on_button_down)
+	start_button.button_down.connect(_on_button_1_button_down)
 	
-func on_button_down() -> void:
+
+
+func _on_button_1_button_down() -> void:
 	get_tree().change_scene_to_packed(start_level)

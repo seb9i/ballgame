@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dag1i0px5cywk"]
 
-[ext_resource type="Script" path="res://Scenes/Main Menu/main_menu.gd" id="1_7xkbd"]
-[ext_resource type="VideoStream" path="res://Assets/Background/power-poles-purple-sky-pixel-moewalls-com.ogv" id="3_7xkbd"]
+[ext_resource type="Script" uid="uid://lmk8ov7hm8xl" path="res://Scenes/Main Menu/main_menu.gd" id="1_7xkbd"]
+[ext_resource type="VideoStream" uid="uid://0lkg372qo276" path="res://Assets/Background/power-poles-purple-sky-pixel-moewalls-com.ogv" id="3_7xkbd"]
 [ext_resource type="FontFile" uid="uid://c41un0xmqs0d3" path="res://Assets/Fonts/JustMyType-KePl.ttf" id="3_fr3p2"]
 
 [node name="Main_Menu" type="Control"]
@@ -22,6 +22,7 @@ offset_bottom = 1083.0
 stream = ExtResource("3_7xkbd")
 autoplay = true
 expand = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 z_index = 1
@@ -85,3 +86,5 @@ theme_override_fonts/font = ExtResource("3_fr3p2")
 theme_override_font_sizes/font_size = 30
 text = "Settings
 "
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_button_down"]

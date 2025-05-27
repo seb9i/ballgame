@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var rng = RandomNumberGenerator.new()
-
+signal ball_reset
 @onready var rimpos = get_parent().get_node("Rim")
 # Markers for rim shots
 @onready var collision_shape = rimpos.get_node("Medium")
@@ -20,6 +20,8 @@ const MAX_Y = 400
 var is_shot = false
 var time = Time.get_unix_time_from_system()
 var allow_input = true
+var override = false
+var override_location = null
 
 
 func _unhandled_input(event) -> void:
@@ -29,7 +31,6 @@ func _unhandled_input(event) -> void:
 	if not is_shot and allow_input:
 		%trail.visible = false
 		if Input.is_action_just_released("Shoot"):
-			time = Time.get_unix_time_from_system()
 			
 			if (collision_shape3.global_position.distance_to(ball.get_node("CollisionShape2D").global_position) < 700):
 				toss_ball_parabola(collision_shape2.global_position, 70, ball, bar.value)
@@ -55,16 +56,16 @@ func _physics_process(delta):
 
 	var ball = get_parent().get_node("Basketball")
 	bar.global_position = ball.global_position
-	if ball.global_position.y >= RESET_WIDTH and ball.global_position.x <= RESET_LENGTH:
-		transfer_ball_random()
 	if is_shot:
-		if Time.get_unix_time_from_system() - time > 3:
-			ball.global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
-			ball.set_freeze_enabled(true)
-			ball.is_shot = false
+		if Time.get_unix_time_from_system() - time > 4:
+			transfer_ball_random()
+			Scoreboard.shot_made = false
+
 	pass
 
 func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get_parent().get_node("Basketball"), meter = 100):
+	time = Time.get_unix_time_from_system()
+
 	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	var collision_shape = ball.get_node("CollisionShape2D")
 	ball.set_freeze_enabled(false)
@@ -87,7 +88,7 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
 	
 	var launch_speed = sqrt(speed_squared)
 	
-	if (meter > 85):
+	if (meter > 90):
 		meter = 100
 		$trail.visible = true
 	
@@ -95,13 +96,22 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
 	var vy = rng.randf_range((launch_speed * sin_angle) * (meter / 100), launch_speed * sin_angle )
 	
 	ball.linear_velocity = Vector2(-vx, -vy)
+	is_shot = true
 	return true
  	
 func transfer_ball_random():
+	if (override):
+		print("OVERRIDE!")
+		global_position = override_location
+	else:
+		global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
+	override = false
 	%trail.visible = false
-	global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
 	set_freeze_enabled(true)
 	is_shot = false
+	if allow_input:
+		
+		Scoreboard.shot.emit()
 
 func make_transparent(boolean = false):
 	if boolean:
@@ -121,6 +131,7 @@ func _on_body_entered(body: Node) -> void:
 			$"../RIM".play()
 		else:
 			$"../bounce".play()
+
 		
 
 
@@ -130,3 +141,13 @@ func _on_bounce_finished() -> void:
 
 func _on_rim_finished() -> void:
 	pass # Replace with function body.
+
+
+   
+	
+
+
+
+func _on_sound_trigger_body_entered(body):
+	if (body.name == "Basketball"):
+		Scoreboard.shot_made = true

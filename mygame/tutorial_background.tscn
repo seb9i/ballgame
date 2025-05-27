@@ -25,10 +25,10 @@ script = SubResource("GDScript_ieqqf")
 
 [node name="Parallax2D6" type="ParallaxLayer" parent="."]
 texture_filter = 1
-position = Vector2(-461, -117)
+position = Vector2(15, 8)
 scale = Vector2(2.28376, 2.24036)
 motion_offset = Vector2(-2, 0)
-motion_mirroring = Vector2(574, 0)
+motion_mirroring = Vector2(1144, 0)
 
 [node name="Clouds" type="Sprite2D" parent="Parallax2D6"]
 texture_filter = 1
@@ -42,7 +42,7 @@ texture = ExtResource("1_0e6k4")
 
 [node name="Parallax2D7" type="ParallaxLayer" parent="."]
 texture_filter = 1
-position = Vector2(-461, -117)
+position = Vector2(15, 8)
 scale = Vector2(2.28376, 2.24036)
 
 [node name="BackgroundCity" type="Sprite2D" parent="Parallax2D7"]
@@ -57,7 +57,7 @@ texture = ExtResource("2_3bted")
 
 [node name="Parallax2D8" type="ParallaxLayer" parent="."]
 texture_filter = 1
-position = Vector2(-461, -117)
+position = Vector2(15, 8)
 scale = Vector2(2.28376, 2.24036)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D8"]
@@ -72,7 +72,7 @@ texture = ExtResource("3_6d35s")
 
 [node name="Parallax2D9" type="ParallaxLayer" parent="."]
 texture_filter = 1
-position = Vector2(-461, -117)
+position = Vector2(15, 8)
 scale = Vector2(2.28376, 2.24036)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D9"]
@@ -87,7 +87,7 @@ texture = ExtResource("4_habyb")
 
 [node name="Parallax2D10" type="ParallaxLayer" parent="."]
 texture_filter = 1
-position = Vector2(-461, -117)
+position = Vector2(15, 8)
 scale = Vector2(2.28376, 2.24036)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D10"]
