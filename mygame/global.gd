@@ -9,7 +9,7 @@ var shot_made:
 		shot_made = new_value
 	get:
 		return shot_made
-		shot_made = false
+
 
 
 
