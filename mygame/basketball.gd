@@ -31,7 +31,7 @@ func _unhandled_input(event) -> void:
 	if not is_shot and allow_input:
 		%trail.visible = false
 		if Input.is_action_just_released("Shoot"):
-			
+
 			if (collision_shape3.global_position.distance_to(ball.get_node("CollisionShape2D").global_position) < 700):
 				toss_ball_parabola(collision_shape2.global_position, 70, ball, bar.value)
 
@@ -46,7 +46,7 @@ func _unhandled_input(event) -> void:
 			else:
 				toss_ball_parabola(shape_world_pos, 60, ball, bar.value)
 			is_shot = true
-			print(bar.value)
+
 			bar.value = 0
 			bar.visible = false
 			
@@ -57,8 +57,9 @@ func _physics_process(delta):
 	var ball = get_parent().get_node("Basketball")
 	bar.global_position = ball.global_position
 	if is_shot:
-		if Time.get_unix_time_from_system() - time > 4:
+		if Time.get_unix_time_from_system() - time > 7:
 			transfer_ball_random()
+			Scoreboard.shot.emit()
 			Scoreboard.shot_made = false
 
 	pass
@@ -101,17 +102,22 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
  	
 func transfer_ball_random():
 	if (override):
-		print("OVERRIDE!")
+
 		global_position = override_location
+
+		override = false
 	else:
 		global_position = Vector2(randf_range(MIN_X, MAX_X), randf_range(MIN_Y, MAX_Y))
 	override = false
 	%trail.visible = false
 	set_freeze_enabled(true)
 	is_shot = false
-	if allow_input:
-		
+	if allow_input == false:
+		allow_input = true
+	else:
 		Scoreboard.shot.emit()
+	
+
 
 func make_transparent(boolean = false):
 	if boolean:
