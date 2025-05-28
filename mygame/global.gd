@@ -1,6 +1,8 @@
 extends Node
 
 var score = 0
+var player_turns = 2
+var ai_turns = 2
 signal shot
 var shot_made: 
 	set (new_value):
