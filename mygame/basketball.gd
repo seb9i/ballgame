@@ -57,7 +57,7 @@ func _physics_process(delta):
 	var ball = get_parent().get_node("Basketball")
 	bar.global_position = ball.global_position
 	if is_shot:
-		if Time.get_unix_time_from_system() - time > 7:
+		if Time.get_unix_time_from_system() - time > 5:
 			transfer_ball_random()
 			Scoreboard.shot.emit()
 			Scoreboard.shot_made = false
@@ -114,8 +114,7 @@ func transfer_ball_random():
 	is_shot = false
 	if allow_input == false:
 		allow_input = true
-	else:
-		Scoreboard.shot.emit()
+	Scoreboard.shot.emit()
 	
 
 
