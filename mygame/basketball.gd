@@ -114,6 +114,7 @@ func transfer_ball_random():
 	is_shot = false
 	if allow_input == false:
 		allow_input = true
+	meter.modulate.a = 1
 	Scoreboard.shot.emit()
 	
 
