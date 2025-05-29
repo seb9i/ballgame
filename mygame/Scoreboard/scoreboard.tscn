@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://daq7qjfpqc2vr"]
+
+[ext_resource type="Script" path="res://Scoreboard/scoreboard.gd" id="1_0ujhu"]
+[ext_resource type="FontFile" uid="uid://0qrj7clgq3" path="res://Assets/Fonts/Digital7Italic-BW658.ttf" id="2_ybpua"]
+[ext_resource type="Script" path="res://Scoreboard/score.gd" id="3_oqurc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0ujhu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 152.0
+offset_bottom = 114.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+z_index = 5
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(0.834129, 0.24125, 0.123567, 1)
+theme_override_fonts/font = ExtResource("2_ybpua")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_oqurc")
