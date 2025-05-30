@@ -10,3 +10,4 @@ func _ready():
 func _process(delta):
 	$Label3.text = GlobalPig.label_1
 	$Label2.text = GlobalPig.label_2
+	$Label4.text = GlobalPig.label_3
