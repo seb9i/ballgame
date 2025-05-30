@@ -15,6 +15,7 @@ signal shots
 func _ready():
 	Dialogic.start("Level_One")
 	Scoreboard.shot_made = false
+	$Basketball.allow_input = false
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func swap_positions():
@@ -24,14 +25,18 @@ func swap_positions():
 			ai = true
 			Scoreboard.player_turns -= 1
 			GlobalPig.label_1 += string_1[2 - Scoreboard.player_turns] + "."
-			
+			GlobalPig.label_3 = "Swapping possessions - other player picks the shot positions"
+			await get_tree().create_timer(1.5).timeout
+			GlobalPig.label_3 = ""
 		else:
 
 			player_one = true
 			ai = false
 			Scoreboard.ai_turns -= 1
 			GlobalPig.label_2 += string_1[2 - Scoreboard.ai_turns] + "."
-
+			GlobalPig.label_3 = "Swapping possessions - you player picks the shot positions"
+			await get_tree().create_timer(1.5).timeout
+			GlobalPig.label_3 = ""
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,11 +50,7 @@ func doThing():
 
 	while Scoreboard.player_turns > 0 and Scoreboard.ai_turns > 0:
 		await get_tree().create_timer(.2).timeout
-	
-
-	
 		
-	
 		if player_one:
 			activate_horse(true)
 			print("Awaiting shot")
@@ -64,11 +65,10 @@ func doThing():
 			$Basketball.allow_input = false
 			await get_tree().create_timer(1.5).timeout
 			var ai_shot = randf_range(50, 100)
-			if ai_shot > 50:
+			if ai_shot > 80:
 
 				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball)
 			else:
-
 
 				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball, ai_shot)	
 			print("Awaiting ai shot")
@@ -77,8 +77,6 @@ func doThing():
 			if (Scoreboard.shot_made == false):
 				Scoreboard.ai_turns -= 1
 				GlobalPig.label_2 += string_1[2 - Scoreboard.ai_turns] + "."
-				
-
 				
 		if ai:
 			
@@ -89,8 +87,8 @@ func doThing():
 			$Basketball.override = true
 			print($Basketball.override)
 			$Basketball.override_location = previous_position
-			var ai_shot = randf_range(70, 100)
-			if ai_shot > 70:
+			var ai_shot = randf_range(50, 100)
+			if ai_shot > 80:
 
 				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball)
 			else:
@@ -125,7 +123,7 @@ func activate_horse(boolean = false):
 func _on_dialogic_signal(argument:String):
 	if argument == "Pick":
 		Dialogic.paused = true
-		
+		$Basketball.allow_input = true
 		doThing()
 
 
