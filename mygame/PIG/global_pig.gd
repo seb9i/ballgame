@@ -1,6 +1,7 @@
 extends Node
 var label_1 = ""
 var label_2 = ""
+var label_3 = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
