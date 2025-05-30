@@ -46,7 +46,7 @@ func _unhandled_input(event) -> void:
 			else:
 				toss_ball_parabola(shape_world_pos, 60, ball, bar.value)
 			is_shot = true
-
+			bar.modulate.a = 1
 			bar.value = 0
 			bar.visible = false
 			
