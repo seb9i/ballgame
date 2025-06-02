@@ -30,6 +30,19 @@ func _unhandled_input(event) -> void:
 
 	if not is_shot and allow_input:
 		%trail.visible = false
+		if Input.is_action_just_pressed("Shoot"):
+			var distance = (collision_shape2.global_position.distance_to(ball.global_position) / 600)
+			var distance2 = (distance * 100)
+			if distance2 < 80:
+				meter.get_node("Timer").wait_time = 0.003 / distance
+				print(distance2)
+			elif distance2 < 150:
+				meter.get_node("Timer").wait_time = 0.007 / distance
+				print(distance2)
+			else:
+				meter.get_node("Timer").wait_time = 0.010 / distance
+				print(distance2)
+			print(0.003 / (collision_shape2.global_position.distance_to(ball.global_position) / 600))
 		if Input.is_action_just_released("Shoot"):
 
 			if (collision_shape3.global_position.distance_to(ball.get_node("CollisionShape2D").global_position) < 700):
@@ -117,7 +130,15 @@ func transfer_ball_random():
 	meter.modulate.a = 1
 	Scoreboard.shot.emit()
 	
-
+func ai_percentages():
+	var distance = (collision_shape2.global_position.distance_to(global_position) / 600)
+	var distance2 = (distance * 100)
+	if distance2 < 80:
+		return 75
+	elif distance2 < 150:
+		return 55
+	else:
+		return 30
 
 func make_transparent(boolean = false):
 	if boolean:
