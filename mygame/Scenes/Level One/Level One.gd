@@ -64,7 +64,8 @@ func doThing():
 
 			$Basketball.allow_input = false
 			await get_tree().create_timer(1.5).timeout
-			var ai_shot = randf_range(50, 100)
+
+			var ai_shot = randf_range($Basketball.ai_percentages(), 100)
 			if ai_shot > 80:
 
 				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball)
@@ -87,8 +88,8 @@ func doThing():
 			$Basketball.override = true
 			print($Basketball.override)
 			$Basketball.override_location = previous_position
-			var ai_shot = randf_range(50, 100)
-			if ai_shot > 80:
+			var ai_shot = randf_range($Basketball.ai_percentages(), 100)
+			if ai_shot > 85:
 
 				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball)
 			else:
