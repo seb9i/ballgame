@@ -1,0 +1,12 @@
+Marker2D
+AnimatedSprite2D
+LightOccluder2D
+GPUParticles2D
+Node2D
+Timer
+Label
+WorldEnvironment
+Sprite2D
+ParallaxBackground
+ParallaxLayer
+Camera2D

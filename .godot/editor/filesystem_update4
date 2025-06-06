@@ -1,0 +1,20 @@
+res://Scenes/Level One/Level One.tscn
+res://Dialogue/New_File.tres
+res://basketball.gd
+res://basketball.tscn
+res://Scenes/Tutorial/Main.tscn
+res://PIG/PIG.tscn
+res://Assets/green meter.tscn
+res://Scenes/Level Two/level_two.tscn
+res://Scoreboard/scoreboard.tscn
+res://timer.tscn
+res://Assets/Trail/trail.tscn
+res://Scenes/Level Two/level_two.gd
+res://Assets/Outlines/outline.gdshader
+res://Scenes/Tutorial/Dialogue/proctor.dch
+res://Scenes/Tutorial/Dialogue/tutorial.dtl
+res://Scenes/Tutorial/main.gd
+res://Scenes/Level One/Level One.gd
+res://gpu_particles_2d.tscn
+res://AnimatedSprite2D.gd
+res://Assets/Dust/dust.tscn
