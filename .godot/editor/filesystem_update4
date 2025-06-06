@@ -1,0 +1,17 @@
+res://tutorial_background.tscn
+res://Dialogue/New_File.tres
+res://Assets/Outlines/outline.gdshader
+res://tutorial_background.gdshader
+res://Scenes/Level One/Level One.tscn
+res://basketball.tscn
+res://PIG/PIG.tscn
+res://Assets/green meter.tscn
+res://Scoreboard/scoreboard.tscn
+res://timer.tscn
+res://Assets/Trail/trail.tscn
+res://gpu_particles_2d.tscn
+res://Assets/Dust/dust.tscn
+res://Scenes/Level Three/level_three.tscn
+res://Scenes/Level One/Level One.gd
+res://ai_basketball.gd
+res://Scenes/Level Three/level_three.gd

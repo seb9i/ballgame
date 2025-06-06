@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqckgtahyagxy"]
+
+[ext_resource type="Texture2D" uid="uid://blr6mush7swgk" path="res://Assets/Dust/dust1.png" id="1_70lor"]
+[ext_resource type="Texture2D" uid="uid://di3hkpwstr3dc" path="res://Assets/Dust/dust2.png" id="2_521kx"]
+[ext_resource type="Texture2D" uid="uid://mogkvcriivnw" path="res://Assets/Dust/dust3.png" id="3_0p4c7"]
+[ext_resource type="Texture2D" uid="uid://cdfyv5er8qnnn" path="res://Assets/Dust/dust4.png" id="4_fe4lg"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="5_cg43c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mi0p0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_70lor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_521kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0p4c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fe4lg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_mi0p0")
+autoplay = "default"
+frame_progress = 0.513864
+script = ExtResource("5_cg43c")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

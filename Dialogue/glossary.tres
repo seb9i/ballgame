@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://df087wmcmg1dk"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_va74h"]
+
+[resource]
+script = ExtResource("1_va74h")
+entries = {
+"Silver": {
+"case_sensitive": true,
+"name": "Silver",
+"text": "Sd",
+"title": "Sd"
+}
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

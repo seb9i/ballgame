@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddwibi4e8qg8b"]
+
+[sub_resource type="Curve" id="Curve_0eruj"]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hhdf8"]
+offsets = PackedFloat32Array(0.184466, 0.946667)
+colors = PackedColorArray(0.507206, 0.654081, 0.319217, 1, 1, 1, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_07ax7"]
+script/source = "extends Line2D
+
+var queue : Array
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var pos = _get_position()
+	queue.push_front(pos)
+	if (queue.size() > 35):
+		queue.pop_back()
+	clear_points()
+	
+	for point in queue:
+		add_point(point)
+		
+func _get_position():
+	return get_global_mouse_position()
+	
+"
+
+[node name="trail" type="Line2D"]
+top_level = true
+z_index = 4
+width_curve = SubResource("Curve_0eruj")
+default_color = Color(0.612575, 0.558614, 0.835167, 1)
+gradient = SubResource("Gradient_hhdf8")
+script = SubResource("GDScript_07ax7")

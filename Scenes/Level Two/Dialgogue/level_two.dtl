@@ -1,0 +1,10 @@
+Make 3 shots in 20 seconds.
+[signal arg="show"]
+[wait time="3.0"]
+Your time starts now.
+[signal arg="start"]
+Good job.
+if {Scoreboard.score} >= 3:
+	You made the goal.
+else:
+	You lost.
