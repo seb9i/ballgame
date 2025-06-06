@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://k44k6g0560ws"]
+
+[ext_resource type="Script" uid="uid://c8jpadu7wkyr8" path="res://Scenes/Level One/Level One.gd" id="1_ldchh"]
+[ext_resource type="Script" uid="uid://423pbo3bxe20" path="res://camera_2d.gd" id="1_umsa1"]
+[ext_resource type="Texture2D" uid="uid://e01en7w64xac" path="res://Assets/Background/black-370118_1280.png" id="2_3j1ok"]
+[ext_resource type="PackedScene" uid="uid://dem4vu137w1r8" path="res://basketball.tscn" id="3_t3iu8"]
+[ext_resource type="PackedScene" uid="uid://b2pvqe64fs4u2" path="res://Assets/Trail/trail.tscn" id="4_s66ao"]
+[ext_resource type="Script" uid="uid://dyuxokih2bsx3" path="res://Assets/Trail/BallTrail.gd" id="5_ioymd"]
+[ext_resource type="PackedScene" uid="uid://lf67avx156i6" path="res://rim.tscn" id="6_puvt3"]
+[ext_resource type="AudioStream" uid="uid://ooiwfbifwwgt" path="res://Assets/Sound Effects/bounce.mp3" id="7_m0es1"]
+[ext_resource type="AudioStream" uid="uid://jmb52kel7753" path="res://Assets/Sound Effects/Basketball Hits Rim Take 2 (mp3cut.net).mp3" id="8_257ns"]
+[ext_resource type="AudioStream" uid="uid://mymp5wfpyqkh" path="res://Assets/Sound Effects/city-terrace-night-16943.mp3" id="9_toonb"]
+[ext_resource type="AudioStream" uid="uid://dy8rsjo874m7m" path="res://Assets/Sound Effects/soundscrate-basketball-swish-2.mp3" id="10_m11kc"]
+[ext_resource type="PackedScene" uid="uid://dtvbpoicwe373" path="res://Assets/green meter.tscn" id="11_px54e"]
+[ext_resource type="Script" uid="uid://15v62voh8abr" path="res://Assets/green_meter.gd" id="12_1j8vy"]
+[ext_resource type="PackedScene" uid="uid://daq7qjfpqc2vr" path="res://scoreboard.tscn" id="13_f3x1o"]
+[ext_resource type="Texture2D" uid="uid://bib7pqiofim43" path="res://Assets/Background/7.png" id="14_0dk8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ojgr"]
+size = Vector2(1909.88, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hl0i"]
+size = Vector2(1070.44, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvhs1"]
+size = Vector2(1047.94, 13.8749)
+
+[sub_resource type="GDScript" id="GDScript_jmndr"]
+script/source = "extends Area2D
+@onready var swish = %net
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_body_entered(body):
+	if (body.name == \"Basketball\"):
+		swish.play()
+		Scoreboard.score += 1
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b3m0"]
+size = Vector2(112.25, 14)
+
+[node name="LevelOne" type="Node2D"]
+position = Vector2(381, 217)
+script = ExtResource("1_ldchh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574.625, 327)
+script = ExtResource("1_umsa1")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+z_index = 5
+position = Vector2(591, 705)
+shape = SubResource("RectangleShape2D_4ojgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+z_index = 4
+position = Vector2(576.5, 783.5)
+scale = Vector2(1.50234, 0.212895)
+texture = ExtResource("2_3j1ok")
+
+[node name="Wall Left" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Left"]
+z_index = 5
+position = Vector2(-374.001, 322.781)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7hl0i")
+
+[node name="Wall Right" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Right"]
+z_index = 5
+position = Vector2(1527, 328.031)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fvhs1")
+
+[node name="Basketball" parent="." instance=ExtResource("3_t3iu8")]
+
+[node name="trail" parent="Basketball" instance=ExtResource("4_s66ao")]
+unique_name_in_owner = true
+script = ExtResource("5_ioymd")
+
+[node name="Rim" parent="." instance=ExtResource("6_puvt3")]
+position = Vector2(474, 493)
+
+[node name="bounce" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_m0es1")
+volume_db = -7.924
+pitch_scale = 0.92
+
+[node name="RIM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_257ns")
+volume_db = -18.819
+pitch_scale = 1.34
+
+[node name="ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_toonb")
+volume_db = -5.051
+
+[node name="SoundTrigger" type="Area2D" parent="."]
+script = SubResource("GDScript_jmndr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoundTrigger"]
+position = Vector2(-227.125, 214)
+shape = SubResource("RectangleShape2D_8b3m0")
+one_way_collision_margin = 0.0
+
+[node name="net" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_m11kc")
+volume_db = -4.953
+pitch_scale = 1.04
+
+[node name="Control" parent="." instance=ExtResource("11_px54e")]
+z_index = 4
+offset_left = 419.0
+offset_top = 320.0
+offset_right = 419.0
+offset_bottom = 320.0
+scale = Vector2(0.393069, 0.443055)
+script = ExtResource("12_1j8vy")
+
+[node name="Scoreboard" parent="." instance=ExtResource("13_f3x1o")]
+z_index = 4
+position = Vector2(477, -193)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 251)
+scale = Vector2(0.828993, 0.731481)
+texture = ExtResource("14_0dk8j")
+
+[connection signal="body_entered" from="SoundTrigger" to="." method="_on_sound_trigger_body_entered"]
+[connection signal="body_entered" from="SoundTrigger" to="Basketball" method="_on_sound_trigger_body_entered"]

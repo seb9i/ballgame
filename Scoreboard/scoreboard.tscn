@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://daq7qjfpqc2vr"]
+
+[ext_resource type="Script" uid="uid://brky2wscysrua" path="res://Scoreboard/scoreboard.gd" id="1_0ujhu"]
+[ext_resource type="FontFile" uid="uid://0qrj7clgq3" path="res://Assets/Fonts/Digital7Italic-BW658.ttf" id="2_ybpua"]
+[ext_resource type="Script" uid="uid://dujgbww3avh1m" path="res://Scoreboard/score.gd" id="3_oqurc"]
+
+[sub_resource type="Environment" id="Environment_cvjnl"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.95
+glow_blend_mode = 0
+adjustment_enabled = true
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0ujhu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cvjnl")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(2, 0.096, 0.319, 1)
+z_index = 5
+offset_right = 151.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("2_ybpua")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_oqurc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 152.0
+offset_bottom = 114.0
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtvbpoicwe373"]
+
+[ext_resource type="Texture2D" uid="uid://btstuk8tqlbqf" path="res://Assets/new_gradient_texture_2d.tres" id="1_ev186"]
+[ext_resource type="Script" uid="uid://15v62voh8abr" path="res://Assets/green_meter.gd" id="1_qqyry"]
+[ext_resource type="Texture2D" uid="uid://t5e4sg08wofd" path="res://Assets/Textures/white.png" id="2_ca303"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qqyry")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_right = 608.0
+offset_bottom = 64.0
+rotation = -1.5708
+nine_patch_stretch = true
+texture_under = ExtResource("1_ev186")
+texture_progress = ExtResource("2_ca303")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

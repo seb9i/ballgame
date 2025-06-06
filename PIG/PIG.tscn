@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh4g24ksi48ir"]
+
+[ext_resource type="FontFile" uid="uid://dm5ac3sxmm3l6" path="res://Assets/Fonts/dpcomic.ttf" id="1_5fp14"]
+[ext_resource type="Script" uid="uid://dlvtbmd1crde3" path="res://PIG/PIG.gd" id="1_vpbw3"]
+
+[node name="Pig" type="Node2D"]
+script = ExtResource("1_vpbw3")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1250.0
+offset_right = 1290.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.974688, 0.571681, 0.37729, 1)
+theme_override_fonts/font = ExtResource("1_5fp14")
+theme_override_font_sizes/font_size = 60
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -400.0
+offset_right = -326.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.924239, 0, 0.109936, 1)
+theme_override_fonts/font = ExtResource("1_5fp14")
+theme_override_font_sizes/font_size = 60
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 221.0
+offset_top = -1.0
+offset_right = 295.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.924239, 0, 0.109936, 1)
+theme_override_fonts/font = ExtResource("1_5fp14")
+theme_override_font_sizes/font_size = 60
