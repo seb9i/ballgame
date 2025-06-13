@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp2361cmxiug4"]
+
+[ext_resource type="Texture2D" uid="uid://c448i1vg2n0ec" path="res://Assets/Background/Level One/1.png" id="2_6rawj"]
+[ext_resource type="Texture2D" uid="uid://beo5eddkb0dgs" path="res://Assets/Background/Level One/2.png" id="3_jpsbi"]
+[ext_resource type="Texture2D" uid="uid://ck1x5itbnpncl" path="res://Assets/Background/Level One/3.png" id="4_swmra"]
+[ext_resource type="Texture2D" uid="uid://ihmqf6vvs2go" path="res://Assets/Background/Level One/4.png" id="5_0fsui"]
+[ext_resource type="Texture2D" uid="uid://b66da4de6q28r" path="res://Assets/Background/Level One/5.png" id="6_isahd"]
+
+[sub_resource type="Shader" id="Shader_nfmqy"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	UV.x += TIME * .030;
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mkvx6"]
+shader = SubResource("Shader_nfmqy")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mkvx6")
+offset_left = -6.0
+offset_top = 1.0
+offset_right = 570.0
+offset_bottom = 325.0
+scale = Vector2(3.32356, 3.32748)
+texture = ExtResource("2_6rawj")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mkvx6")
+offset_left = 1909.0
+offset_right = 2485.0
+offset_bottom = 324.0
+scale = Vector2(3.32356, 3.32748)
+texture = ExtResource("2_6rawj")
+
+[node name="Parallax2D7" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(15, 8)
+scale = Vector2(2.28376, 2.24036)
+
+[node name="BackgroundCity" type="Sprite2D" parent="Parallax2D7"]
+texture_filter = 1
+position = Vector2(288, 218)
+texture = ExtResource("3_jpsbi")
+
+[node name="BackgroundCity2" type="Sprite2D" parent="Parallax2D7"]
+texture_filter = 1
+position = Vector2(864, 218)
+texture = ExtResource("3_jpsbi")
+
+[node name="Parallax2D8" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(15, 8)
+scale = Vector2(2.28376, 2.24036)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D8"]
+texture_filter = 1
+position = Vector2(285, 248)
+texture = ExtResource("4_swmra")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D8"]
+texture_filter = 1
+position = Vector2(860, 248)
+texture = ExtResource("4_swmra")
+
+[node name="Parallax2D9" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(15, 8)
+scale = Vector2(2.28376, 2.24036)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D9"]
+texture_filter = 1
+position = Vector2(814, 295)
+texture = ExtResource("5_0fsui")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D9"]
+texture_filter = 1
+position = Vector2(281, 289)
+texture = ExtResource("5_0fsui")
+
+[node name="Parallax2D10" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(15, 8)
+scale = Vector2(2.28376, 2.24036)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D10"]
+texture_filter = 1
+position = Vector2(861.299, 224.071)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_isahd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D10"]
+texture_filter = 1
+position = Vector2(-3.06512, 225.41)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_isahd")

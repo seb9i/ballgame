@@ -1,0 +1,17 @@
+Would you like to play a game of P.I.G?
+- Yes!
+	Great! Lets start.
+- No!
+	Well we only have one ball.
+	- Why did you not bring a ball?
+		Why are you asking so many questions?
+	- Ok, lets start.
+		Great!
+It's raining today, so I imagine shooting will be [speed=0.5][color=gray]tougher...[/color]
+Move the mouse and pick a spot on the floor by pressing [color=green]G[/color]. You lose if you miss three times, or if you get all three letters of P.I.G.
+P.I.G is a game of replicating shots, so wherever you shoot from, I shoot from, and vice versa.
+[signal arg="Pick"]
+if {Scoreboard.ai_turns} == 0:
+	You got lucky..
+elif {Scoreboard.player_turns} == 0:
+	I won!
