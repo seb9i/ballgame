@@ -70,10 +70,9 @@ func doThing():
 			var ai_shot = randf_range($Basketball.ai_percentages(), 100)
 			if ai_shot > 80:
 
-				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball)
+				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70)
 			else:
-
-				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball, ai_shot)	
+				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, ai_shot)	
 			print("Awaiting ai shot")
 			await Scoreboard.shot
 			print("AI shot the ball")
@@ -94,10 +93,10 @@ func doThing():
 			var ai_shot = randf_range($Basketball.ai_percentages(), 100)
 			if ai_shot > 85:
 
-				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball)
+				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70)
 			else:
 
-				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, $Basketball, ai_shot)
+				$Basketball.toss_ball_parabola($Basketball.collision_shape2.global_position, 70, ai_shot)
 			print("AI TURN- AI SHOT")
 			await Scoreboard.shot
 

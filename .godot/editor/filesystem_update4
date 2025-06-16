@@ -1,9 +1,13 @@
-res://Assets/Background/Level One/tutorial_background.tscn
-res://Scenes/Tutorial/Main.tscn
+res://Scenes/Level Select/control.tscn
 res://Dialogue/New_File.tres
 res://Assets/Outlines/outline.gdshader
-res://Scenes/Level One/Level One.tscn
+res://Assets/Background/Level Select/2.gdshader
+res://Assets/Background/Level Select/3.gdshader
+res://Assets/Background/Level Select/4.gdshader
+res://Assets/Background/Level Select/5.gdshader
+res://Scenes/Level Select/play_btn.gd
 res://basketball.tscn
+res://Scenes/Tutorial/Main.tscn
 res://PIG/PIG.tscn
 res://Assets/green meter.tscn
 res://Scenes/Level Two/level_two.tscn
@@ -12,7 +16,32 @@ res://timer.tscn
 res://Assets/Trail/trail.tscn
 res://gpu_particles_2d.tscn
 res://Assets/Dust/dust.tscn
+res://Assets/Background/Level One/tutorial_background.tscn
 res://Assets/Background/Level One/tut_back.tscn
 res://Assets/Background/Level Two/lvl_two.tscn
+res://Scenes/Level One/Level One.tscn
+res://Scenes/Main Menu/main_menu.tscn
+res://Scenes/Level Select/lvl_btn.tscn
+res://Assets/Background/Extra Map/multimap.tscn
+res://Scenes/Local Multiplayer/placeholder.tscn
+res://Scenes/Local Multiplayer/multiplayer.gd
+res://Assets/Background/Real Level One/lvl_one.tscn
+res://Assets/Background/Real Level One/map_data.gd
 res://basketball.gd
+res://Scenes/Local Multiplayer/basketball_2.gd
+res://Assets/green_meter.gd
+res://scoreboard.gd
+res://Scoreboard/score.gd
+res://Scenes/Local Multiplayer/label_2.gd
+res://Scoreboard/global.gd
+res://scoreboard.tscn
 res://Scenes/Level One/Level One.gd
+res://Scenes/Local Multiplayer/Dialogue/multiplayer.dtl
+res://timer.gd
+res://Scenes/Local Multiplayer/control.tscn
+res://Scenes/Level Two/level_two.gd
+res://Scenes/Level Select/back_button.gd
+res://rim.tscn
+res://Scenes/Tutorial/Dialogue/tutorial.dtl
+res://Scenes/Tutorial/main.gd
+res://Scenes/Main Menu/main_menu.gd

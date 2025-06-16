@@ -10,9 +10,9 @@ signal ball_reset
 @onready var collision_shape4 = rimpos.get_node("Long")
 @onready var dust = load("res://Assets/Dust/dust.tscn")
 @onready var camera : Camera2D = get_parent().get_node("Camera2D")
-@onready var meter = get_parent().get_node("Control")
+@onready var meter = get_node("Control")
 @onready var bar = meter.get_node("TextureProgressBar")
-
+@onready var trail = get_node("trail")
 const RESET_LENGTH = 100
 const RESET_WIDTH = 550
 const MIN_X = 450
@@ -24,17 +24,17 @@ var time = Time.get_unix_time_from_system()
 var allow_input = true
 var override = false
 var override_location = null
-var on_floor
+var on_floor = false
 
 
 func _unhandled_input(event) -> void:
-	var ball = get_parent().get_node("Basketball")
 	var shape_world_pos = collision_shape.global_position
 	 
 	if not is_shot and allow_input:
-		%trail.visible = false
+		trail.visible = false
 		if Input.is_action_just_pressed("Shoot"):
-			var distance = (collision_shape2.global_position.distance_to(ball.global_position) / 600)
+			meter.shoot_pressed = true
+			var distance = (collision_shape2.global_position.distance_to(global_position) / 600)
 			var distance2 = (distance * 100)
 			print(snapped(distance2, 70))
 			meter.get_node("Timer").wait_time = 0.010 / (snapped(distance2, 70) / 70)
@@ -49,20 +49,20 @@ func _unhandled_input(event) -> void:
 
 
 		if Input.is_action_just_released("Shoot"):
-
-			if (collision_shape3.global_position.distance_to(ball.get_node("CollisionShape2D").global_position) < 700):
-				toss_ball_parabola(collision_shape2.global_position, 70, ball, bar.value)
+			meter.shoot_pressed = false
+			if (collision_shape3.global_position.distance_to(get_node("CollisionShape2D").global_position) < 700):
+				toss_ball_parabola(collision_shape2.global_position, 70, bar.value)
 
 
 
 			# Far Shot	
-			elif (collision_shape3.global_position.distance_to(ball.get_node("CollisionShape2D").global_position) > 1100):
+			elif (collision_shape3.global_position.distance_to(get_node("CollisionShape2D").global_position) > 1100):
 
-				toss_ball_parabola(collision_shape4.global_position, 60, ball, bar.value)
+				toss_ball_parabola(collision_shape4.global_position, 60, bar.value)
 
 			# Medium Shot	
 			else:
-				toss_ball_parabola(shape_world_pos, 60, ball, bar.value)
+				toss_ball_parabola(shape_world_pos, 60, bar.value)
 			is_shot = true
 			bar.modulate.a = 1
 			bar.value = 0
@@ -72,17 +72,13 @@ func _unhandled_input(event) -> void:
 	
 func _physics_process(delta):
 
-	var ball = get_parent().get_node("Basketball")
-	bar.global_position = ball.global_position
+	bar.global_position = get_node("CollisionShape2D").global_position
 	if on_floor:
 		var instance = preload("res://Assets/Dust/dust.tscn").instantiate()
 		
 		instance.global_position.x = $CollisionShape2D.global_position.x
 		instance.global_position.y = $CollisionShape2D.global_position.y + 12
-		print("Effect added at:", instance.global_position)
-		print("Effect parent:", instance.get_parent())
-		print("Current scene:", get_tree().current_scene.name)
-		print(instance)
+		
 		get_tree().current_scene.add_child(instance)
 	if is_shot:
 		if Time.get_unix_time_from_system() - time > 4:
@@ -92,12 +88,12 @@ func _physics_process(delta):
 
 	pass
 
-func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get_parent().get_node("Basketball"), meter = 100):
+func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, meter = 100):
 	time = Time.get_unix_time_from_system()
 
 	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-	var collision_shape = ball.get_node("CollisionShape2D")
-	ball.set_freeze_enabled(false)
+	var collision_shape = get_node("CollisionShape2D")
+	set_freeze_enabled(false)
 
 	var displacement = target_pos - collision_shape.global_position
 	var dx = displacement.x 
@@ -119,12 +115,12 @@ func toss_ball_parabola(target_pos: Vector2, launch_angle_deg: float, ball = get
 	
 	if (meter > 90):
 		meter = 100
-		$trail.visible = true
+		trail.visible = true
 	
 	var vx = rng.randf_range((launch_speed * cos_angle) * (meter / 100), launch_speed * cos_angle )
 	var vy = rng.randf_range((launch_speed * sin_angle) * (meter / 100), launch_speed * sin_angle )
 	
-	ball.linear_velocity = Vector2(-vx, -vy)
+	linear_velocity = Vector2(-vx, -vy)
 	is_shot = true
 	return true
  	

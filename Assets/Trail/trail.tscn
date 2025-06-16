@@ -12,7 +12,7 @@ colors = PackedColorArray(0.44557, 0.661084, 0.446148, 1, 1, 1, 1, 1)
 
 [node name="trail" type="Line2D"]
 top_level = true
-z_index = 4
+z_index = 8
 width_curve = SubResource("Curve_0eruj")
 default_color = Color(0.963937, 0.346792, 0.59955, 1)
 gradient = SubResource("Gradient_hhdf8")

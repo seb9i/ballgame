@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://lf67avx156i6"]
 
-[ext_resource type="Texture2D" uid="uid://bpaqgpieyfgly" path="res://Assets/Textures/pixil-frame-0 (3).png" id="1_asiuf"]
+[ext_resource type="Texture2D" uid="uid://26cuumbr6it0" path="res://Assets/Textures/pixil-frame-1 (2).png" id="1_xfrtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
 size = Vector2(35.9219, 35.8438)
@@ -9,7 +9,7 @@ size = Vector2(35.9219, 35.8438)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5
-position = Vector2(-643, -291)
+position = Vector2(-623, -288)
 shape = SubResource("RectangleShape2D_lgr22")
 disabled = true
 
@@ -30,13 +30,13 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5
-position = Vector2(-733.711, -245)
-scale = Vector2(0.355273, 0.281171)
-texture = ExtResource("1_asiuf")
+position = Vector2(-725, -218)
+scale = Vector2(0.38848, 0.404947)
+texture = ExtResource("1_xfrtg")
 offset = Vector2(-13.505, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-37, 20)
+position = Vector2(-15, 25)
 scale = Vector2(0.849266, 1)
 polygon = PackedVector2Array(-720.39, -329, -704.137, -325, -698.25, -323, -704.137, -303, -718.267, -297)
 

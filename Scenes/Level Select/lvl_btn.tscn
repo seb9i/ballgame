@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://btkxwms2kbslq"]
+
+[ext_resource type="Script" uid="uid://hc1kkjxqahc2" path="res://Scenes/Level Select/lvl_btn.gd" id="1_2gtvb"]
+[ext_resource type="FontFile" uid="uid://c41un0xmqs0d3" path="res://Assets/Fonts/JustMyType-KePl.ttf" id="1_nhll5"]
+
+[node name="lvl_btn" type="Button"]
+offset_right = 173.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_nhll5")
+theme_override_font_sizes/font_size = 50
+text = "Level 1"
+script = ExtResource("1_2gtvb")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

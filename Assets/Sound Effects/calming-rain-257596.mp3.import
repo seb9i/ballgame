@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dc24rr1nussgf"
-valid=false
+path="res://.godot/imported/calming-rain-257596.mp3-7cdeee2f14670e500238f6535b725909.mp3str"
 
 [deps]
 
 source_file="res://Assets/Sound Effects/calming-rain-257596.mp3"
+dest_files=["res://.godot/imported/calming-rain-257596.mp3-7cdeee2f14670e500238f6535b725909.mp3str"]
 
 [params]
 

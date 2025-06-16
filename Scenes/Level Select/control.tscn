@@ -1,0 +1,139 @@
+[gd_scene load_steps=19 format=3 uid="uid://ce2x40v2ynl5g"]
+
+[ext_resource type="Texture2D" uid="uid://bysrxij1wrtjw" path="res://Assets/Background/Level Select/1.png" id="1_vxnsa"]
+[ext_resource type="Shader" uid="uid://clqoww1r5qjtc" path="res://Assets/Background/Level Select/2.gdshader" id="2_r8n38"]
+[ext_resource type="Texture2D" uid="uid://vkrvyp1y4vmx" path="res://Assets/Background/Level Select/2.png" id="3_akbjj"]
+[ext_resource type="Shader" uid="uid://bv2waux5qm4k" path="res://Assets/Background/Level Select/3.gdshader" id="4_7psdm"]
+[ext_resource type="Texture2D" uid="uid://kgqc87tqotsf" path="res://Assets/Background/Level Select/3.png" id="5_hft42"]
+[ext_resource type="Shader" uid="uid://uap418xy73rx" path="res://Assets/Background/Level Select/4.gdshader" id="6_qtqbi"]
+[ext_resource type="Texture2D" uid="uid://pdpcxj0twnxl" path="res://Assets/Background/Level Select/4.png" id="7_6edxa"]
+[ext_resource type="Shader" uid="uid://cayw5plodgwnh" path="res://Assets/Background/Level Select/5.gdshader" id="8_cdagm"]
+[ext_resource type="Texture2D" uid="uid://budav2u6135vf" path="res://Assets/Background/Level Select/5.png" id="9_to6d1"]
+[ext_resource type="FontFile" uid="uid://c41un0xmqs0d3" path="res://Assets/Fonts/JustMyType-KePl.ttf" id="10_3bhqu"]
+[ext_resource type="PackedScene" uid="uid://btkxwms2kbslq" path="res://Scenes/Level Select/lvl_btn.tscn" id="11_akbjj"]
+[ext_resource type="Script" uid="uid://cnfu0una1bsir" path="res://Scenes/Level Select/lvl_btn2.gd" id="12_7psdm"]
+[ext_resource type="Script" uid="uid://0fe3hqnn7aow" path="res://Scenes/Level Select/lvl_btn3.gd" id="13_hft42"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6qlj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjccn"]
+shader = ExtResource("2_r8n38")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cxj5"]
+shader = ExtResource("4_7psdm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kk20"]
+shader = ExtResource("6_qtqbi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82hxd"]
+shader = ExtResource("8_cdagm")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.33093, 3.31694)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_y6qlj")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_vxnsa")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_tjccn")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_akbjj")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cxj5")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_hft42")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6kk20")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_6edxa")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_82hxd")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_to6d1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 0.900649
+offset_right = 569.901
+offset_bottom = 42.0
+theme_override_constants/margin_left = 234
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 225
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.873425, 0.517698, 0.533142, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_3bhqu")
+theme_override_font_sizes/font_size = 20
+text = "Level Select"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="lvl_btn" parent="." instance=ExtResource("11_akbjj")]
+layout_mode = 0
+offset_left = 98.1707
+offset_top = 95.5701
+offset_right = 227.171
+offset_bottom = 156.57
+scale = Vector2(0.35, 0.279)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+
+[node name="lvl_btn2" parent="." instance=ExtResource("11_akbjj")]
+layout_mode = 0
+offset_left = 435.171
+offset_top = 95.5701
+offset_right = 564.171
+offset_bottom = 156.57
+scale = Vector2(0.35, 0.279)
+text = "Level 2
+"
+script = ExtResource("12_7psdm")
+
+[node name="lvl_btn3" parent="." instance=ExtResource("11_akbjj")]
+layout_mode = 0
+offset_left = 266.671
+offset_top = 241.57
+offset_right = 395.671
+offset_bottom = 302.57
+scale = Vector2(0.35, 0.279)
+text = "Tutorial"
+script = ExtResource("13_hft42")

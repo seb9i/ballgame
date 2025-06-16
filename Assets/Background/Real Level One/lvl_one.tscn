@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvkq7snlwfdhe"]
+
+[ext_resource type="Texture2D" uid="uid://cvdk1buom2u07" path="res://Assets/Background/7.png" id="1_nme2y"]
+[ext_resource type="PackedScene" uid="uid://dvnc3wa7dhrj1" path="res://gpu_particles_2d.tscn" id="2_ek7ms"]
+
+[node name="LvlOne" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1149, 652)
+texture = ExtResource("1_nme2y")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("2_ek7ms")]
+position = Vector2(1149, 666)
+scale = Vector2(3.52894, 4.17584)

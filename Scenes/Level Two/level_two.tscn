@@ -1,18 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://bh3x516alfi8"]
+[gd_scene load_steps=20 format=3 uid="uid://bh3x516alfi8"]
 
 [ext_resource type="Script" uid="uid://by2cng84va0q0" path="res://Scenes/Level Two/level_two.gd" id="1_8b1bs"]
 [ext_resource type="Script" uid="uid://423pbo3bxe20" path="res://camera_2d.gd" id="2_bf47t"]
 [ext_resource type="Texture2D" uid="uid://e01en7w64xac" path="res://Assets/Background/black-370118_1280.png" id="3_dfgov"]
 [ext_resource type="PackedScene" uid="uid://dem4vu137w1r8" path="res://basketball.tscn" id="4_eolx8"]
-[ext_resource type="PackedScene" uid="uid://b2pvqe64fs4u2" path="res://Assets/Trail/trail.tscn" id="5_xyy0i"]
-[ext_resource type="Script" uid="uid://dyuxokih2bsx3" path="res://Assets/Trail/BallTrail.gd" id="6_0dp12"]
 [ext_resource type="PackedScene" uid="uid://lf67avx156i6" path="res://rim.tscn" id="7_wn0wx"]
 [ext_resource type="AudioStream" uid="uid://ooiwfbifwwgt" path="res://Assets/Sound Effects/bounce.mp3" id="8_fpufj"]
 [ext_resource type="AudioStream" uid="uid://jmb52kel7753" path="res://Assets/Sound Effects/Basketball Hits Rim Take 2 (mp3cut.net).mp3" id="9_yv4b0"]
 [ext_resource type="AudioStream" uid="uid://mymp5wfpyqkh" path="res://Assets/Sound Effects/city-terrace-night-16943.mp3" id="10_kqkph"]
 [ext_resource type="AudioStream" uid="uid://dy8rsjo874m7m" path="res://Assets/Sound Effects/soundscrate-basketball-swish-2.mp3" id="11_q5131"]
-[ext_resource type="PackedScene" uid="uid://dtvbpoicwe373" path="res://Assets/green meter.tscn" id="12_tpurq"]
+[ext_resource type="PackedScene" uid="uid://btkxwms2kbslq" path="res://Scenes/Level Select/lvl_btn.tscn" id="13_cy7il"]
 [ext_resource type="PackedScene" uid="uid://daq7qjfpqc2vr" path="res://scoreboard.tscn" id="13_kga0p"]
+[ext_resource type="Script" uid="uid://dkwudegejhl5j" path="res://Scenes/Level Select/back_button.gd" id="14_7lnjn"]
 [ext_resource type="PackedScene" uid="uid://bexrplafuq211" path="res://timer.tscn" id="15_jq6sp"]
 [ext_resource type="PackedScene" uid="uid://bdyn1aiojjd7r" path="res://Assets/Background/Level Two/lvl_two.tscn" id="15_xujd1"]
 
@@ -88,10 +87,6 @@ shape = SubResource("RectangleShape2D_fvhs1")
 z_index = 6
 position = Vector2(608, 273)
 
-[node name="trail" parent="Basketball" instance=ExtResource("5_xyy0i")]
-unique_name_in_owner = true
-script = ExtResource("6_0dp12")
-
 [node name="Rim" parent="." instance=ExtResource("7_wn0wx")]
 position = Vector2(474, 493)
 
@@ -123,14 +118,6 @@ stream = ExtResource("11_q5131")
 volume_db = -4.953
 pitch_scale = 1.04
 
-[node name="Control" parent="." instance=ExtResource("12_tpurq")]
-z_index = 7
-offset_left = 419.0
-offset_top = 320.0
-offset_right = 419.0
-offset_bottom = 320.0
-scale = Vector2(0.393069, 0.443055)
-
 [node name="Scoreboard" parent="." instance=ExtResource("13_kga0p")]
 z_index = 4
 position = Vector2(499, -379)
@@ -141,6 +128,18 @@ position = Vector2(1294, -415)
 
 [node name="Node2D" parent="." instance=ExtResource("15_xujd1")]
 position = Vector2(-376, -219)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 9
+
+[node name="back button" parent="CanvasLayer" instance=ExtResource("13_cy7il")]
+z_index = 21
+offset_left = 46.0
+offset_top = 19.0
+offset_right = 219.0
+offset_bottom = 107.0
+text = "Back"
+script = ExtResource("14_7lnjn")
 
 [connection signal="body_entered" from="SoundTrigger" to="." method="_on_sound_trigger_body_entered"]
 [connection signal="body_entered" from="SoundTrigger" to="Basketball" method="_on_sound_trigger_body_entered"]

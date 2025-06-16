@@ -1,0 +1,13 @@
+join proctor left
+proctor: Hello, {MapData.name_1} and {MapData.name_2}!
+proctor: Your objective today is simple, make the most shots before the timer goes off.
+proctor: {MapData.name_1} shoots with [color=green]L[/color], and {MapData.name_2} shoots with [color=red]E[/color].
+proctor: Your time starts now!
+[signal arg="drop"]
+proctor: That was a great game!
+if {Scoreboard.score} > {Scoreboard.score_1}:
+	proctor: {MapData.name_2} won!
+elif {Scoreboard.score}  <  {Scoreboard.score_1}:
+	proctor: {MapData.name_1} won!
+else:
+	proctor: Both of the contestants tied!

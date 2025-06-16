@@ -12,7 +12,7 @@ proctor: The scoreboard at the top is used to keep track of your shots.
 proctor: Depending on who you're playing against, your screen will shake at different magnitudes.
 [signal arg="shake"]
 proctor: This is a representation of the opponent's defense, and it will affect how well you can shoot.
-proctor: Make 5 shots to continue.
+proctor: Make 2 shots to continue.
 [signal arg="wow"]
 proctor: Oh, and one last thing.
 [text_input text="What's your favorite color?" var="Outline_Color" default="Red"]
